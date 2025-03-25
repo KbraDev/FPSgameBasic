@@ -1,0 +1,33 @@
+[gd_scene load_steps=4 format=3 uid="uid://d1rui8p0vomyu"]
+
+[ext_resource type="ArrayMesh" uid="uid://c85tbf6ghyq3x" path="res://assets/GodotFPS-Assets/GodotFPS-Assets/Models/Weapon/shotgun.obj" id="1_81gv1"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_jrg37"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_pm1u3"]
+
+[node name="jugador" type="CharacterBody3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+visible = false
+mesh = SubResource("CapsuleMesh_jrg37")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("CapsuleShape3D_pm1u3")
+
+[node name="cameraOrbit" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+
+[node name="Camera3D" type="Camera3D" parent="cameraOrbit"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0.25, 0)
+current = true
+
+[node name="gun" type="MeshInstance3D" parent="cameraOrbit/Camera3D"]
+transform = Transform3D(-10, 0, -8.74228e-07, 0, 10, 0, 8.74228e-07, 0, -10, 0.3, -0.2, -0.543)
+mesh = ExtResource("1_81gv1")
+skeleton = NodePath("../..")
+
+[node name="Node3D" type="Node3D" parent="cameraOrbit/Camera3D/gun"]
+transform = Transform3D(1, 0, 1.42109e-14, 0, 1, 0, -1.42109e-14, 0, 1, -1.86265e-09, 0.00706015, 0.0418027)
