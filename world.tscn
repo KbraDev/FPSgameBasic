@@ -16,6 +16,7 @@ data = PackedVector3Array(1.6031, 1.3175, -1.1135, 1.5503, 0, -1.1476, 1.8336, 0
 data = PackedVector3Array(0, 0, 0, 3, 0.3, 0, 3, 0, 0, 3, 0.3, 0, 0, 0, 0, 0, 0.3, 0, 0, 0.3, -3, 3, 0.3, 0, 0, 0.3, 0, 3, 0.3, 0, 0, 0.3, -3, 3, 0.3, -3, 3, 0, -3, 3, 0.3, 0, 3, 0.3, -3, 3, 0.3, 0, 3, 0, -3, 3, 0, 0, 3, 0, -3, 0, 0, 0, 3, 0, 0, 0, 0, 0, 3, 0, -3, 0, 0, -3, 0, 0.3, -3, 0, 0, 0, 0, 0, -3, 0, 0, 0, 0, 0.3, -3, 0, 0.3, 0, 3, 0, -3, 0, 0.3, -3, 0, 0, -3, 0, 0.3, -3, 3, 0, -3, 3, 0.3, -3)
 
 [sub_resource type="Environment" id="Environment_3vf3u"]
+background_color = Color(0.493457, 0.648638, 0.853152, 1)
 
 [node name="world" type="Node3D"]
 
@@ -98,7 +99,7 @@ environment = SubResource("Environment_3vf3u")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.999996, -1.16415e-10, -0.00289724, 0.00189354, 0.75687, 0.653563, 0.00219283, -0.653566, 0.756866, 9.51626, 11.6138, 7.63604)
-light_color = Color(0.861948, 0.576929, 0.5534, 1)
+light_color = Color(0.834529, 0.400984, 0.327985, 1)
 
 [node name="jugador" parent="." instance=ExtResource("4_450eg")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.413, 0.230442, -5.93793)

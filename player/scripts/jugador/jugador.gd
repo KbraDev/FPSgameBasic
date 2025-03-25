@@ -22,6 +22,8 @@ var mouseDelta : Vector2 = Vector2()
 
 # Camera 
 @onready var camera = get_node("cameraOrbit/Camera3D")
+@onready var pivote = get_node("cameraOrbit/Camera3D/gun/Node3D")
+@onready var bulletScene = preload("res://player/bullet.tscn")
 
 func _ready() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
@@ -31,6 +33,8 @@ func _ready() -> void:
 func _input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion:
 		mouseDelta = event.relative
+	elif event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
+		_shoot()
 
 # Maneja el movimiento de la camara en correlacion al mouse
 func _process(delta: float) -> void:
@@ -46,6 +50,16 @@ func _process(delta: float) -> void:
 	# Reiniciar mouseDelta
 	mouseDelta = Vector2()
 	
+	if Input.is_action_just_pressed("shoot"):
+		_shoot()
+
+
+func _shoot():
+	var bullet = bulletScene.instantiate()
+	get_tree().get_root().add_child(bullet)
+	bullet.global_transform = pivote.global_transform
+	bullet.scale = Vector3.ONE
+	ammo -= 1
 
 func _physics_process(delta: float) -> void:
 	# Reiniciar x y z de velocidad en cada cuadro
