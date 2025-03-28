@@ -18,7 +18,8 @@ config/icon="res://icon.svg"
 
 folder_colors={
 "res://assets/": "red",
-"res://player/scripts/": "yellow"
+"res://scenes/bullet/scripts/": "yellow",
+"res://scenes/player/scripts/": "yellow"
 }
 
 [input]

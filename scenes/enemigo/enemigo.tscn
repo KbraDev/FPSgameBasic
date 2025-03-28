@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://c3t10atduvbdh"]
+
+[ext_resource type="Script" path="res://scenes/enemigo/script/enemigo.gd" id="1_56t6o"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_c32a3"]
+albedo_color = Color(0.339605, 0.610617, 0.36548, 1)
+roughness = 0.15
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_hmvie"]
+material = SubResource("StandardMaterial3D_c32a3")
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_b6yiy"]
+
+[node name="enemigo" type="CharacterBody3D"]
+script = ExtResource("1_56t6o")
+
+[node name="modelo" type="MeshInstance3D" parent="."]
+mesh = SubResource("CapsuleMesh_hmvie")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("CapsuleShape3D_b6yiy")
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

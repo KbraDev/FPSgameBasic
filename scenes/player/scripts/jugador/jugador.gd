@@ -23,7 +23,7 @@ var mouseDelta : Vector2 = Vector2()
 # Camera 
 @onready var camera = get_node("cameraOrbit/Camera3D")
 @onready var pivote = get_node("cameraOrbit/Camera3D/gun/Node3D")
-@onready var bulletScene = preload("res://player/bullet.tscn")
+@onready var bulletScene = preload("res://scenes/bullet/bullet.tscn")
 
 func _ready() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
@@ -95,3 +95,24 @@ func _physics_process(delta: float) -> void:
 		velocity.y = jumpForce
 	
 	move_and_slide()
+	
+
+func add_score(puntosQueDa):
+		score += puntosQueDa
+	
+func take_damage(damage):
+	saludAhora -= damage
+	
+	if saludAhora <= 0:
+		morirse()
+
+func morirse():
+	get_tree().reload_current_scene()
+	
+
+func add_health(vida):
+	saludAhora = clamp(saludAhora + vida, 0, saludMax)
+	
+func add_ammo(municion):
+	ammo += municion
+	
